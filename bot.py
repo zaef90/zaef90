@@ -11,11 +11,6 @@ import json
 import requests
 import csv
 
-
-# apikey ='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'
-# model ="gpt-3.5-turbo-16k"
-
-
 bot = Bot(token="6334349451:AAGm91LG9T0WqV8GberB1tZiwQPUDQSKnXU", parse_mode=types.ParseMode.HTML)
 
 
@@ -23,12 +18,6 @@ storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
 
 match_id = ""
-
-
-# @dp.message_handler(commands=['help'])
-# async def cmd_help(message: types.Message):
-#     await help(message)
-
 
 @dp.message_handler(text="Analyze Home Stats")
 async def handle_home_stats_button(message: types.Message):
@@ -43,9 +32,7 @@ async def handle_away_stats_button(message: types.Message):
     await message.answer(f"Please wait, I'm thinking about how to present you the away team's stats... \n\n"
                 " The operation may take up to 30 seconds.\n\n"
                 "Babz")
-    # await message.answer(f"Veuillez patientez SVP je reflechis a comment vous presenter lesstats de l'equipe a l'exterieur.... \n\n"
-    #             " l'operation peut prendre j'usqu'a 30 seconde.\n\n"
-    #             "LUCIEN")
+
     await handle_away_stats(message)
 
 
@@ -55,11 +42,6 @@ async def handle_analyze_button(message: types.Message):
                         "babz")
     await handle_analyze(message)
 
-
-
-
-
-#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 @dp.message_handler(commands="babz")
 async def start(message: types.Message):
     start_buttons = ["Load today Matches", "Load Stats", "Analyze Home Stats", "Analyze Away Stats", "Analyze both teams", "Corners Prediction", "Cards Prediction"]
@@ -74,21 +56,6 @@ async def start(message: types.Message):
 
 
     {hbold('Some options like cards and corners predictions are under development')}''', reply_markup=keyboard)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @dp.message_handler(Text(equals="Load today Matches"))
