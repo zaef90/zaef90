@@ -662,7 +662,7 @@ async def help(message: types.Message):
 
 def call_gpt_api(prompt):
     try:
-        openai.api_key='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'
+        openai.api_key='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'
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-16k",
             temperature=0.0,
